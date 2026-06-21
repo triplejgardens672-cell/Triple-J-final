@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triple J — Garden Maintenance, Jet Washing & Tool Hire</title>
+<meta name="description" content="Triple J: garden maintenance, jet washing and tool hire across Orpington & Sidcup, Kent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2B1F;
+    --cream:#F5F0E1;
+    --canary:#E8B923;
+    --moss:#4A5D3A;
+    --clay:#8B7355;
+    --ink-soft: rgba(27,43,31,0.7);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  img,svg{display:block;max-width:100%;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--canary);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(245,240,225,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(27,43,31,0.1);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.3rem;
+    letter-spacing:-0.01em;
+  }
+
+  .brand .mark{width:30px;height:30px;flex-shrink:0;}
+
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:0.95rem;
+    font-weight:500;
+  }
+
+  .nav-links a{
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:2px;
+    background:var(--canary);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.25s ease;
+  }
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  .nav-cta{
+    background:var(--ink);
+    color:var(--cream);
+    padding:10px 20px;
+    border-radius:3px;
+    font-size:0.9rem;
+    font-weight:600;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--moss);}
+
+  .menu-toggle{display:none;}
+
+  @media (max-width:760px){
+    .nav-links{display:none;}
+    .menu-toggle{
+      display:block;
+      background:none;
+      border:none;
+      font-family:'Fraunces',serif;
+      font-size:1.5rem;
+      cursor:pointer;
+      color:var(--ink);
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:64px 0 0;
+    overflow:hidden;
+  }
+
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:40px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--moss);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:18px;height:2px;
+    background:var(--canary);
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--moss);
+  }
+
+  .hero p.lede{
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:30px;
+  }
+
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-primary{
+    background:var(--canary);
+    color:var(--ink);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(232,185,35,0.35);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--cream);}
+
+  /* Horizon illustration */
+  .horizon-frame{
+    border-radius:6px;
+    overflow:hidden;
+    background:linear-gradient(180deg, #cfe3d6 0%, var(--cream) 60%);
+    aspect-ratio:4/3.4;
+    position:relative;
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    border-top:1px solid rgba(27,43,31,0.12);
+    border-bottom:1px solid rgba(27,43,31,0.12);
+    padding:22px 0;
+  }
+  .trust-strip .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:28px;
+    justify-content:space-between;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  .trust-strip span{display:flex;align-items:center;gap:8px;}
+  .trust-strip .dot{width:6px;height:6px;border-radius:50%;background:var(--canary);flex-shrink:0;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:90px 0;}
+  .section-head{
+    max-width:60ch;
+    margin-bottom:56px;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.05rem;}
+
+  .section-alt{background:var(--ink); color:var(--cream);}
+  .section-alt .section-head p{color:rgba(245,240,225,0.7);}
+  .section-alt .eyebrow{color:var(--canary);}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(27,43,31,0.12);
+    border:1px solid rgba(27,43,31,0.12);
+    border-radius:6px;
+    overflow:hidden;
+  }
+
+  .service-card{
+    background:var(--cream);
+    padding:38px 30px;
+    transition:background 0.25s ease;
+  }
+  .service-card:hover{background:#ECE5D0;}
+
+  .service-num{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:0.95rem;
+    color:var(--clay);
+    margin-bottom:18px;
+    display:block;
+  }
+
+  .service-card h3{
+    font-size:1.35rem;
+    margin-bottom:12px;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:0.96rem;
+    margin-bottom:18px;
+  }
+  .service-card ul{
+    list-style:none;
+    font-size:0.9rem;
+    color:var(--ink);
+  }
+  .service-card li{
+    padding-left:16px;
+    position:relative;
+    margin-bottom:8px;
+  }
+  .service-card li::before{
+    content:'';
+    position:absolute;
+    left:0; top:8px;
+    width:5px;height:5px;
+    background:var(--moss);
+    border-radius:50%;
+  }
+
+  @media (max-width:860px){
+    .services-grid{grid-template-columns:1fr;}
+    .hero-inner{grid-template-columns:1fr;}
+    .horizon-frame{order:-1;}
+  }
+
+  /* ---------- TOOL HIRE STRIP ---------- */
+  .hire-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    margin-top:10px;
+  }
+  .hire-item{
+    border-top:2px solid var(--canary);
+    padding-top:16px;
+  }
+  .hire-item .price{
+    font-family:'Fraunces',serif;
+    font-size:1.6rem;
+    color:var(--canary);
+    margin-bottom:4px;
+  }
+  .hire-item .price span{font-size:0.95rem; color:rgba(245,240,225,0.6); font-family:'Inter',sans-serif;}
+  .hire-item h4{font-size:1rem; font-weight:600; margin-bottom:6px;}
+  .hire-item p{font-size:0.85rem; color:rgba(245,240,225,0.65);}
+
+  @media (max-width:760px){
+    .hire-list{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .step{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:24px;
+    padding:28px 0;
+    border-bottom:1px solid rgba(27,43,31,0.12);
+  }
+  .step:first-child{border-top:1px solid rgba(27,43,31,0.12);}
+  .step-mark{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.1rem;
+    color:var(--moss);
+  }
+  .step h3{font-size:1.15rem; margin-bottom:6px;}
+  .step p{color:var(--ink-soft); font-size:0.95rem; max-width:54ch;}
+
+  /* ---------- AREA / MAP STRIP ---------- */
+  .area-strip{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+  }
+  .area-strip h2{font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:18px;}
+  .area-strip p{color:var(--ink-soft); margin-bottom:14px;}
+  .area-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+  }
+  .area-tags span{
+    border:1px solid rgba(27,43,31,0.25);
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:0.85rem;
+    font-weight:500;
+  }
+
+  @media (max-width:760px){
+    .area-strip{grid-template-columns:1fr;}
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    background:var(--moss);
+    color:var(--cream);
+    padding:70px 0;
+    text-align:center;
+  }
+  .cta-band h2{
+    font-size:clamp(1.8rem,3.6vw,2.6rem);
+    margin-bottom:16px;
+  }
+  .cta-band p{
+    color:rgba(245,240,225,0.8);
+    max-width:50ch;
+    margin:0 auto 32px;
+    font-size:1.05rem;
+  }
+  .cta-band .btn-primary:hover{box-shadow:0 8px 24px rgba(232,185,35,0.45);}
+
+  /* ---------- QUOTE FORM ---------- */
+  .quote-form{
+    max-width:480px;
+    margin:0 auto;
+    text-align:left;
+    background:rgba(245,240,225,0.06);
+    border:1px solid rgba(245,240,225,0.18);
+    border-radius:8px;
+    padding:28px;
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block;
+    font-size:0.82rem;
+    font-weight:600;
+    margin-bottom:6px;
+    color:rgba(245,240,225,0.85);
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    padding:11px 12px;
+    border-radius:4px;
+    border:1px solid rgba(245,240,225,0.25);
+    background:rgba(245,240,225,0.96);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+  }
+  .field textarea{resize:vertical;}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:2px solid var(--canary);
+    outline-offset:1px;
+  }
+  .quote-form .btn{width:100%; justify-content:center; margin-top:4px;}
+  .qf-status{
+    margin-top:12px;
+    font-size:0.9rem;
+    min-height:1.2em;
+  }
+  .qf-status.success{color:var(--canary);}
+  .qf-status.error{color:#E89923;}
+
+  .cta-divider{
+    color:rgba(245,240,225,0.5);
+    font-size:0.85rem;
+    margin:22px 0;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+  }
+
+  .btn-ghost-light{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.95rem;
+    background:transparent;
+    color:var(--cream);
+    border:1.5px solid rgba(245,240,225,0.4);
+    transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-ghost-light:hover{background:rgba(245,240,225,0.1); border-color:var(--cream);}
+
+  @media (max-width:520px){
+    .form-row{grid-template-columns:1fr;}
+    .quote-form{padding:22px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:rgba(245,240,225,0.7);
+    padding:56px 0 28px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    margin-bottom:40px;
+  }
+  .footer-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:1.2rem;
+    color:var(--cream);
+    margin-bottom:14px;
+  }
+  .footer-brand .mark{width:26px;height:26px;}
+  footer h4{
+    color:var(--cream);
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:14px;
+  }
+  footer ul{list-style:none;}
+  footer li{margin-bottom:9px; font-size:0.92rem;}
+  footer a:hover{color:var(--canary);}
+  .footer-bottom{
+    border-top:1px solid rgba(245,240,225,0.15);
+    padding-top:22px;
+    font-size:0.82rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    color:rgba(245,240,225,0.5);
+  }
+
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr; gap:28px;}
+  }
+
+  /* Section divider with canary */
+  .divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 0;
+  }
+  .divider svg{width:34px;height:34px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="16" fill="#1B2B1F"/>
+        <path d="M9 19c2-5 6-8 10-8-1 1-1 2 0 3-3 0-6 2-7 6l-3-1z" fill="#E8B923"/>
+        <circle cx="18.5" cy="11.5" r="1" fill="#1B2B1F"/>
+      </svg>
+      Triple J
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#hire">Tool Hire</a>
+      <a href="#how">How It Works</a>
+      <a href="#area">Areas</a>
+      <a href="https://www.facebook.com/share/1DuKQgiECv/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Orpington &amp; Sidcup, Kent</span>
+        <h1>Where the <em>garden</em><br>meets the <em>street</em>.</h1>
+        <p class="lede">Triple J keeps the green side of Kent tidy and the hard surfaces clean — garden maintenance, jet washing, and tools to hire when you'd rather do it yourself.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Get a free quote</a>
+          <a href="#services" class="btn btn-ghost">See services</a>
+        </div>
+      </div>
+
+      <div class="horizon-frame">
+        <svg viewBox="0 0 600 510" width="100%" height="100%" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Illustration of a hedgerow landscape blending into a city skyline, with a canary perched at the horizon">
+          <!-- sky -->
+          <rect width="600" height="510" fill="#cfe3d6"/>
+          <!-- sun glow -->
+          <circle cx="430" cy="150" r="90" fill="#F5F0E1" opacity="0.6"/>
+
+          <!-- distant hills -->
+          <path d="M0 320 Q150 270 300 305 T600 290 V510 H0 Z" fill="#8FA682" opacity="0.55"/>
+
+          <!-- city skyline (right) -->
+          <g fill="#1B2B1F" opacity="0.92">
+            <rect x="360" y="250" width="22" height="160"/>
+            <rect x="388" y="210" width="30" height="200"/>
+            <rect x="424" y="270" width="18" height="140"/>
+            <rect x="448" y="230" width="26" height="180"/>
+            <rect x="480" y="190" width="34" height="220"/>
+            <rect x="520" y="255" width="20" height="155"/>
+            <rect x="546" y="225" width="28" height="185"/>
+            <rect x="396" y="195" width="8" height="20"/>
+            <rect x="490" y="170" width="6" height="24"/>
+          </g>
+          <g fill="#E8B923" opacity="0.85">
+            <rect x="394" y="240" width="6" height="6"/>
+            <rect x="406" y="240" width="6" height="6"/>
+            <rect x="394" y="260" width="6" height="6"/>
+            <rect x="486" y="220" width="6" height="6"/>
+            <rect x="498" y="220" width="6" height="6"/>
+            <rect x="486" y="245" width="6" height="6"/>
+            <rect x="528" y="280" width="5" height="5"/>
+            <rect x="555" y="250" width="5" height="5"/>
+          </g>
+
+          <!-- hedgerow (left, foreground) -->
+          <path d="M0 360 Q40 320 90 345 Q130 310 180 340 Q220 300 270 335 Q300 350 320 380 V510 H0 Z" fill="#4A5D3A"/>
+          <path d="M0 400 Q60 365 130 385 Q190 355 250 390 Q290 410 320 430 V510 H0 Z" fill="#1B2B1F"/>
+
+          <!-- ground line -->
+          <rect x="0" y="408" width="600" height="102" fill="#1B2B1F"/>
+
+          <!-- canary perched at the seam -->
+          <g transform="translate(305,330)">
+            <ellipse cx="0" cy="10" rx="16" ry="12" fill="#E8B923"/>
+            <circle cx="13" cy="2" r="8" fill="#E8B923"/>
+            <path d="M20 1 L28 3 L20 5 Z" fill="#8B7355"/>
+            <circle cx="15.5" cy="0" r="1.2" fill="#1B2B1F"/>
+            <path d="M-10 12 Q-22 16 -28 8" stroke="#1B2B1F" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M-2 20 L-6 28 M4 20 L6 28" stroke="#8B7355" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="wrap">
+        <span><span class="dot"></span>Free, no-obligation quotes</span>
+        <span><span class="dot"></span>Flexible scheduling, evenings &amp; weekends</span>
+        <span><span class="dot"></span>Local — Orpington &amp; Sidcup based</span>
+        <span><span class="dot"></span>Pay only for what you need</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Three ways to get it sorted.</h2>
+        <p>Whether your garden's gotten away from you, your driveway's seen better days, or you just need the right tool for an afternoon — Triple J covers it.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-num">Garden</span>
+          <h3>Garden Maintenance</h3>
+          <p>Regular or one-off upkeep so your garden looks cared for, not abandoned.</p>
+          <ul>
+            <li>Lawn mowing &amp; edging</li>
+            <li>Hedge trimming &amp; shaping</li>
+            <li>Weeding &amp; bed tidying</li>
+            <li>Green waste removal</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Surfaces</span>
+          <h3>Jet Washing</h3>
+          <p>High-pressure cleaning that strips years of grime off the surfaces you walk and park on.</p>
+          <ul>
+            <li>Driveways &amp; patios</li>
+            <li>Paths &amp; decking</li>
+            <li>Walls &amp; fencing</li>
+            <li>Moss &amp; algae removal</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Hire</span>
+          <h3>Tool Hire</h3>
+          <p>Need it for one job, not forever? Hire the kit by the day and skip buying it outright.</p>
+          <ul>
+            <li>Jet washers</li>
+            <li>Hedge trimmers &amp; strimmers</li>
+            <li>Lawn mowers</li>
+            <li>Garden waste bags &amp; tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL HIRE -->
+  <section class="section section-alt" id="hire">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Day rates</span>
+        <h2>Tool hire, by the day.</h2>
+        <p>Get the right kit without the upfront cost. Collection from Orpington, or ask about drop-off.</p>
+      </div>
+
+      <div class="hire-list">
+        <div class="hire-item">
+          <div class="price">£20<span>/day</span></div>
+          <h4>Jet Washer</h4>
+          <p>Petrol or electric, your call</p>
+        </div>
+        <div class="hire-item">
+          <div class="price">£12<span>/day</span></div>
+          <h4>Hedge Trimmer</h4>
+          <p>Petrol, long-reach available</p>
+        </div>
+        <div class="hire-item">
+          <div class="price">£15<span>/day</span></div>
+          <h4>Lawn Mower</h4>
+          <p>Self-propelled petrol mower</p>
+        </div>
+        <div class="hire-item">
+          <div class="price">£10<span>/day</span></div>
+          <h4>Strimmer</h4>
+          <p>Lightweight, easy to handle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Getting started</span>
+        <h2>Simple, start to finish.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-mark">i.</span>
+          <div>
+            <h3>Tell us what's going on</h3>
+            <p>Send a message or call with what needs doing — a garden tidy-up, a driveway clean, or a tool you need for a day.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-mark">ii.</span>
+          <div>
+            <h3>Get a free quote</h3>
+            <p>We'll give you a straight price, no hidden extras, usually within the day.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-mark">iii.</span>
+          <div>
+            <h3>Pick a time that works</h3>
+            <p>Evenings and weekends available — we work around your schedule, not the other way round.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-mark">iv.</span>
+          <div>
+            <h3>Job done, properly</h3>
+            <p>We finish what we start and leave the place tidier than we found it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section" id="area">
+    <div class="wrap area-strip">
+      <div>
+        <span class="eyebrow">Coverage</span>
+        <h2>Based in Orpington. Working across South East London &amp; Kent.</h2>
+        <p>Triple J operates locally — close enough to turn jobs around fast, local enough to know the area.</p>
+        <div class="area-tags">
+          <span>Orpington</span>
+          <span>Sidcup</span>
+          <span>Chislehurst</span>
+          <span>Bromley</span>
+          <span>Petts Wood</span>
+          <span>Bexley</span>
+        </div>
+      </div>
+      <div class="horizon-frame" style="aspect-ratio:4/3;">
+        <svg viewBox="0 0 600 450" width="100%" height="100%" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Stylised map style illustration of hedgerow and rooftops">
+          <rect width="600" height="450" fill="#E8E0C8"/>
+          <path d="M0 280 Q150 240 300 270 T600 250 V450 H0 Z" fill="#4A5D3A" opacity="0.85"/>
+          <path d="M0 330 Q120 300 240 320 Q340 300 420 330 Q500 310 600 330 V450 H0 Z" fill="#1B2B1F"/>
+          <g fill="#8B7355" opacity="0.9">
+            <rect x="70" y="250" width="60" height="34"/>
+            <polygon points="65,250 100,225 135,250" fill="#1B2B1F"/>
+            <rect x="220" y="240" width="50" height="40" />
+            <polygon points="215,240 245,215 275,240" fill="#1B2B1F"/>
+            <rect x="420" y="230" width="55" height="46"/>
+            <polygon points="415,230 447,205 482,230" fill="#1B2B1F"/>
+          </g>
+          <circle cx="300" cy="150" r="3" fill="#E8B923"/>
+          <path d="M300 150 v-30" stroke="#E8B923" stroke-width="2"/>
+          <circle cx="300" cy="110" r="6" fill="#E8B923"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <h2>Let's get it sorted.</h2>
+      <p>Garden gone wild, driveway looking grim, or just need a tool for the weekend — fill in the form for a free quote, or give us a call.</p>
+
+      <form id="quote-form" class="quote-form" action="https://formspree.io/f/xlgyrzen" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="qf-name">Name</label>
+            <input type="text" id="qf-name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="qf-phone">Phone</label>
+            <input type="tel" id="qf-phone" name="phone" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="qf-service">What do you need?</label>
+          <select id="qf-service" name="service">
+            <option>Garden Maintenance</option>
+            <option>Jet Washing</option>
+            <option>Tool Hire</option>
+            <option>Not sure / something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="qf-details">A few details</label>
+          <textarea id="qf-details" name="details" rows="3" placeholder="e.g. size of garden, area to clean, which tool and for how long..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send quote request</button>
+        <p id="qf-status" class="qf-status" aria-live="polite"></p>
+      </form>
+
+      <div class="cta-divider">or</div>
+
+      <a href="tel:+447359284809" class="btn btn-ghost-light">Call 07359 284 809</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="#E8B923"/>
+            <path d="M9 19c2-5 6-8 10-8-1 1-1 2 0 3-3 0-6 2-7 6l-3-1z" fill="#1B2B1F"/>
+          </svg>
+          Triple J
+        </div>
+        <p style="max-width:32ch; font-size:0.92rem;">Garden maintenance, jet washing and tool hire across Orpington, Sidcup &amp; the surrounding Kent area.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Garden Maintenance</a></li>
+          <li><a href="#services">Jet Washing</a></li>
+          <li><a href="#hire">Tool Hire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:+447359284809">07359 284 809</a></li>
+          <li><a href="mailto:triplejgardens672@gmail.com">triplejgardens672@gmail.com</a></li>
+          <li>Orpington, Kent</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/share/1DuKQgiECv/" target="_blank" rel="noopener">Facebook — Triple J Gardens</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Triple J. All rights reserved.</span>
+      <span>Built with care, locally.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('quote-form');
+  const status = document.getElementById('qf-status');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'qf-status';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        status.textContent = "Thanks — we've got your request and will be in touch shortly.";
+        status.className = 'qf-status success';
+        btn.textContent = 'Send quote request';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      status.textContent = "Something went wrong sending that. Please call or email us directly instead.";
+      status.className = 'qf-status error';
+      btn.textContent = 'Send quote request';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
